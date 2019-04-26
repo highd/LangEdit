@@ -6,7 +6,25 @@
         xmlns:local="clr-namespace:LangEditor"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Grid.Row="0">
+            <MenuItem Header="ファイル(_F)">
+                <MenuItem Header="ファイルを開く(_O)"></MenuItem>
+                <MenuItem Header="上書き保存(_S)"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Tree">
+                <local:TreeEditor/>
+            </TabItem>
+            <TabItem Header="Text">
+                <TextBox></TextBox>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
