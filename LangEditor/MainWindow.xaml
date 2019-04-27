@@ -14,8 +14,9 @@
         </Grid.RowDefinitions>
         <Menu VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Header="ファイル(_F)">
-                <MenuItem Header="ファイルを開く(_O)"></MenuItem>
-                <MenuItem Header="上書き保存(_S)"></MenuItem>
+                <MenuItem Header="ファイルを開く(_O)" Click="FileOpenMenuClick"></MenuItem>
+                <MenuItem Header="上書き保存(_S)" Click="FileSaveMenuClick"></MenuItem>
+                <MenuItem Header="名前を付けて保存(_A)" Click="FileNameSaveMenuClick"></MenuItem>
             </MenuItem>
         </Menu>
         <TabControl Grid.Row="1">

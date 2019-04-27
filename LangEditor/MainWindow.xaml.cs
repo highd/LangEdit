@@ -21,5 +21,17 @@ namespace LangEditor {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void FileOpenMenuClick(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void FileSaveMenuClick(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void FileNameSaveMenuClick(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
