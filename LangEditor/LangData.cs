@@ -1,35 +1,22 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Reactive.Bindings;
+using System.Collections.Generic;
 
 namespace LangEditor {
     public class LangData : INotifyPropertyChanged {
-        private bool _IsExpanded = true;
-        private string _Text = "";
-        private LangData _Parent = null;
-        private ObservableCollection<LangData> _Children = null;
+        public ReactiveProperty<bool> IsExpanded { get; set; } = new ReactiveProperty<bool>();
 
+        public ReactiveProperty<string> Text { get; set; } = new ReactiveProperty<string>();
 
-        public bool IsExpanded {
-            get { return _IsExpanded; }
-            set { _IsExpanded = value; OnPropertyChanged("IsExpanded"); }
+        public ReactiveProperty<LangData> Parent { get; set; } = new ReactiveProperty<LangData>();
+
+        public ReactiveProperty<List<LangData>> Children { get; set; } = new ReactiveProperty<List<LangData>>();
+
+        public LangData(string text, bool isExpanded) {
+            Text.Value = text;
+            IsExpanded.Value = isExpanded;
         }
-
-        public string Text {
-            get { return _Text; }
-            set { _Text = value; OnPropertyChanged("Text"); }
-        }
-
-        public LangData Parent {
-            get { return _Parent; }
-            set { _Parent = value; OnPropertyChanged("Parent"); }
-        }
-
-        public ObservableCollection<LangData> Children {
-            get { return _Children; }
-            set { _Children = value; OnPropertyChanged("Childen"); }
-        }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name) {
@@ -38,9 +25,9 @@ namespace LangEditor {
         }
 
         public void Add(LangData child) {
-            if (null == Children) Children = new ObservableCollection<LangData>();
-            child.Parent = this;
-            Children.Add(child);
+            if (null == Children.Value) Children.Value = new List<LangData>();
+            child.Parent.Value = this;
+            Children.Value.Add(child);
         }
     }
 }
