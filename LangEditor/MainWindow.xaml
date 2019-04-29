@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:LangEditor"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,12 +18,12 @@
                 <MenuItem Header="名前を付けて保存(_A)" Click="FileNameSaveMenuClick"></MenuItem>
             </MenuItem>
         </Menu>
-        <TabControl Grid.Row="1">
+        <TabControl Name="tabControl" Grid.Row="1">
             <TabItem Header="Tree">
-                <local:TreeEditor/>
+                <local:TreeEditor x:Name="treeEditer"/>
             </TabItem>
-            <TabItem Header="Text">
-                <TextBox></TextBox>
+            <TabItem Name="tab2" Header="Text">
+                <TextBox AcceptsReturn="True" Grid.Row="0" Text="{Binding Text.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </TabItem>
         </TabControl>
     </Grid>

@@ -18,8 +18,13 @@ namespace LangEditor {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+        public LangEditerData Data { get; set; } = new LangEditerData();
+
         public MainWindow() {
             InitializeComponent();
+            treeEditer.Data = Data;
+            tab2.DataContext = Data;
+            Data.Text.Value = "aaa=199";
         }
 
         private void FileOpenMenuClick(object sender, RoutedEventArgs e) {

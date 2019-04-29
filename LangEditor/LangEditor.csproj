@@ -77,7 +77,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LangData.cs" />
+    <Compile Include="LangEditerData.cs" />
+    <Compile Include="LangTreeData.cs" />
     <Compile Include="TreeEditor.xaml.cs">
       <DependentUpon>TreeEditor.xaml</DependentUpon>
     </Compile>

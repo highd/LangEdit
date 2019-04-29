@@ -11,14 +11,14 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Grid.Column = "0" Name="tree" ItemsSource="{Binding TreeRoot}">
+        <TreeView Grid.Column = "0" Name="tree" ItemsSource="{Binding Data.Tree.Value}">
             <TreeView.Resources>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded.Value,Mode=TwoWay}"/>
                 </Style>
             </TreeView.Resources>
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type local:LangData}" ItemsSource="{Binding Children.Value}">
+                <HierarchicalDataTemplate DataType="{x:Type local:LangTreeData}" ItemsSource="{Binding Children.Value}">
                     <TextBlock Text="{Binding Text.Value}"/>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
