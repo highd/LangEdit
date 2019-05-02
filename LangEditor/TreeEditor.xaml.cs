@@ -13,5 +13,11 @@ namespace LangEditor {
 
             DataContext = this;
         }
+
+        private void tree_SelectedItemChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e) {
+            if (tree.SelectedItem != null && tree.SelectedItem is LangTreeData) {
+                text.Text = ((LangTreeData)tree.SelectedItem).Value;
+            }
+        }
     }
 }

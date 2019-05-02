@@ -41,6 +41,7 @@ namespace LangEditor {
                 if ((data.Children?.Value?.Count ?? 0) == 0) {
                 } else if (data.Children.Value.Count == 1) {
                     data.Text.Value += "." + data.Children.Value[0].Text.Value;
+                    data.Value = data.Children.Value[0].Value;
                     data.Children.Value = concatSingleElement(data.Children.Value[0].Children.Value);
                 } else {
                     data.Children.Value = concatSingleElement(data.Children.Value);
@@ -63,6 +64,8 @@ namespace LangEditor {
             if (child.Length >= 1) {
                 result.Children.Value = groupingSub(child, lv + 1).ToList();
             }
+            String value = child.Where(tuple => tuple.Item1.Length == lv + 1).FirstOrDefault().Item2;
+            result.Value = value;
             return result;
         }
 

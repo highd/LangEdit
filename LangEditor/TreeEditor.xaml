@@ -11,7 +11,8 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TreeView Grid.Column = "0" Name="tree" ItemsSource="{Binding Data.Tree.Value}">
+        <TreeView Grid.Column = "0" Name="tree" ItemsSource="{Binding Data.Tree.Value}"
+                  SelectedItemChanged="tree_SelectedItemChanged" >
             <TreeView.Resources>
                 <Style TargetType="TreeViewItem">
                     <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded.Value,Mode=TwoWay}"/>

@@ -10,8 +10,6 @@ namespace LangEditor {
 
         public ReactiveProperty<string> Text { get; set; } = new ReactiveProperty<string>();
 
-        public ReactiveProperty<string> Out { get; set; }
-
         public LangEditerData() {
             Text.Subscribe(code => {
                 if (code == null) return;

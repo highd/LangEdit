@@ -75,6 +75,12 @@ bbb=6
             elem2.Children.Value.Add(new LangTreeData("eee", false));
             elem2.Children.Value.Add(new LangTreeData("fff", false));
             CollectionAssert.AreEqual(list, new LangTreeData[2] {elem1, elem2}.ToList());
+            Assert.AreEqual(list[0].Value, "3");
+            Assert.AreEqual(list[0].Children.Value[0].Value, "1");
+            Assert.AreEqual(list[0].Children.Value[1].Value, "2");
+            Assert.AreEqual(list[1].Value, "6");
+            Assert.AreEqual(list[1].Children.Value[0].Value, "4");
+            Assert.AreEqual(list[1].Children.Value[1].Value, "5");
         }
 
         [TestMethod()]
